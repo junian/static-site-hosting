@@ -2,12 +2,15 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
+const isGitHubPages = process.env.GITHUB_ACTIONS === 'true';
+
 // https://astro.build/config
 export default defineConfig({
+	base: isGitHubPages ? '/static-site-hosting' : '/',
 	integrations: [
 		starlight({
-			title: 'My Docs',
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
+			title: 'Static Site Hostings',
+			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/junian/static-site-hosting' }],
 			sidebar: [
 				{
 					label: 'Guides',
